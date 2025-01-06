@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlanta Digital Clock</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: #ffffff;
+      height: 100vh;
+      border: 5px solid #a0d4cc;
+    }
+    #clock {
+      font-family: Arial, sans-serif;
+      font-size: 2em;
+      color: #86754e;
+      padding: 10px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">Loading...</div>
+  <script>
+    function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const atlantaTime = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      clockElement.textContent = atlantaTime;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // Initialize immediately
+  </script>
+</body>
+</html>
